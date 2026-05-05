@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
           }}
         >
           Frontend engineer turning analytical instincts into data science. I build things that make
-          data legible — and make decisions easier.
+          data legible and make decisions easier.
         </p>
         <div style={{ ...anim(0.55), display: 'flex', alignItems: 'center', gap: 16 }}>
           <button
