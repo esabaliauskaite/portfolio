@@ -65,7 +65,7 @@ export const About: React.FC = () => {
             }}
           >
             I spent years building interfaces that surface complex information clearly. That same
-            instinct — making the invisible visible — is what drew me toward data science.
+            instinct, making the invisible visible, is what drew me toward data science.
           </p>
           <p
             style={{
@@ -76,7 +76,7 @@ export const About: React.FC = () => {
             }}
           >
             My engineering background gives me an edge: I can prototype, ship, and communicate
-            findings as polished interactive tools — not just notebooks.
+            findings as polished interactive tools, not just notebooks.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
