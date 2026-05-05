@@ -165,7 +165,7 @@ export const Experience: React.FC = () => {
           year="01/2026 – present"
           role="Career Transition → Data Science"
           company="Self-directed learning & projects"
-          desc="Pivoting from frontend engineering into data science — building end-to-end projects in Python, sharpening skills in data analysis, machine learning, and visualisation, and translating my engineering background into data-driven products."
+          desc="Pivoting from frontend engineering into data science: building end-to-end projects in Python, sharpening skills in data analysis, machine learning, and visualisation, and translating my engineering background into data-driven products."
         />
         <TimelineItem
           delay={0.1}
