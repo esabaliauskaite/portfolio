@@ -1,0 +1,28 @@
+import { Theme } from '../types/theme';
+
+export const theme: Theme = {
+  bg: '#0e1a12',
+  altBg: '#0b1510',
+  heroBg: '#0e1a12',
+  navBg: 'rgba(14,26,18,0.88)',
+  fg: '#d8e8d0',
+  fg2: '#7a9e7e',
+  accent: '#5cdb95',
+  accentFg: '#0b1510',
+  border: '#1e3323',
+  border2: '#2a4530',
+  cardBg: '#121f16',
+  cardRadius: 8,
+  cardShadow: '0 8px 32px rgba(0,0,0,0.5)',
+  tagBg: '#121f16',
+  inputBg: '#121f16',
+  placeholder: 'repeating-linear-gradient(45deg, #162019 0px, #162019 6px, #121f16 6px, #121f16 12px)',
+  heading: "'Space Grotesk', sans-serif",
+  body: "'Space Grotesk', sans-serif",
+  mono: "'DM Mono', monospace",
+  heroSize: 'clamp(56px, 8vw, 112px)',
+  heroWeight: 700,
+  heroTracking: '-0.02em',
+  headWeight: 600,
+  radius: 6,
+};

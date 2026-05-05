@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply opacity-[0.45];
+  }
+}

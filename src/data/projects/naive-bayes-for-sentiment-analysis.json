@@ -1,0 +1,8 @@
+{
+  "title": "Naive Bayes Classifier for Sentiment Analysis",
+  "description": "Sentiment analysis of course reviews using Naive Bayes — binary classification (good/bad) with class imbalance handling.",
+  "primaryTags": ["Python", "scikit-learn", "Jupyter Notebook"],
+  "tags": ["Machine Learning", "NLP", "Sentiment Analysis"],
+  "github": "https://github.com/esabaliauskaite/naive-bayes-for-sentiment-analysis",
+  "image": "../projects/performance_per_class.png"
+}
