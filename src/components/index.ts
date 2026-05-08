@@ -7,4 +7,3 @@ export { Experience } from './Experience';
 export { Contact } from './Contact';
 export { Footer } from './Footer';
 export { Reveal } from './Reveal';
-export { SplitName } from './SplitName';
