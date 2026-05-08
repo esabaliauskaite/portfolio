@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { theme } from '../themes/themes';
 import { Reveal } from './Reveal';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 import type { Project } from '../types/project';
+
+const PROJECTS_PER_PAGE = 4;
 
 const projectModules = import.meta.glob('../data/projects/*.json', { eager: true, import: 'default' });
 const projects: Project[] = Object.values(projectModules) as Project[];
@@ -204,11 +207,44 @@ const ProjectCard: React.FC<Project & { index: number }> = ({ title, description
 };
 
 export const Projects: React.FC = () => {
+  const [page, setPage] = useState(0);
+  const width = useWindowWidth();
+  const isMobile = width < 640;
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const showPagination = projects.length > PROJECTS_PER_PAGE;
+  const visibleProjects = projects.slice(page * PROJECTS_PER_PAGE, (page + 1) * PROJECTS_PER_PAGE);
+
+  const NavButton: React.FC<{ onClick: () => void; disabled: boolean; children: React.ReactNode }> = ({ onClick, disabled, children }) => {
+    const [hovered, setHovered] = useState(false);
+    return (
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          fontFamily: theme.mono,
+          fontSize: 11,
+          letterSpacing: '0.06em',
+          color: disabled ? theme.border2 : hovered ? theme.accent : theme.fg2,
+          border: `1px solid ${disabled ? theme.border2 : hovered ? theme.accent : theme.border2}`,
+          borderRadius: 4,
+          padding: '6px 16px',
+          background: 'transparent',
+          cursor: disabled ? 'default' : 'pointer',
+          transition: 'color 0.2s, border-color 0.2s',
+        }}
+      >
+        {children}
+      </button>
+    );
+  };
+
   return (
     <section
       id="projects"
       style={{
-        padding: '120px 48px',
+        padding: isMobile ? '80px 24px' : '120px 48px',
         background: theme.bg,
       }}
     >
@@ -241,14 +277,42 @@ export const Projects: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
             gap: 28,
           }}
         >
-          {projects.map((project, i) => (
+          {visibleProjects.map((project, i) => (
             <ProjectCard key={project.title} index={i} {...project} />
           ))}
         </div>
+        {showPagination && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 16,
+              marginTop: 40,
+            }}
+          >
+            <NavButton onClick={() => setPage(p => p - 1)} disabled={page === 0}>
+              ← prev
+            </NavButton>
+            <span
+              style={{
+                fontFamily: theme.mono,
+                fontSize: 11,
+                color: theme.fg2,
+                letterSpacing: '0.06em',
+              }}
+            >
+              {page + 1} / {totalPages}
+            </span>
+            <NavButton onClick={() => setPage(p => p + 1)} disabled={page === totalPages - 1}>
+              next →
+            </NavButton>
+          </div>
+        )}
       </div>
     </section>
   );

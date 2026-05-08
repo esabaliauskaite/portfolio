@@ -1,8 +1,11 @@
 import React from 'react';
 import { theme } from '../themes/themes';
 import { Reveal } from './Reveal';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 
 export const About: React.FC = () => {
+  const width = useWindowWidth();
+  const isMobile = width < 640;
 
   const stats = [
     { n: '4+', label: 'Years in frontend engineering' },
@@ -15,7 +18,7 @@ export const About: React.FC = () => {
     <section
       id="about"
       style={{
-        padding: '120px 48px',
+        padding: isMobile ? '80px 24px' : '120px 48px',
         background: theme.altBg,
       }}
     >
@@ -24,8 +27,8 @@ export const About: React.FC = () => {
           maxWidth: 1000,
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 80,
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? 48 : 80,
           alignItems: 'center',
         }}
       >
@@ -44,7 +47,7 @@ export const About: React.FC = () => {
           <h2
             style={{
               fontFamily: theme.heading,
-              fontSize: 42,
+              fontSize: isMobile ? 32 : 42,
               fontWeight: theme.headWeight,
               color: theme.fg,
               margin: '0 0 28px',
@@ -84,14 +87,14 @@ export const About: React.FC = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
-              gap: 20,
+              gap: 16,
             }}
           >
             {stats.map(({ n, label }) => (
               <div
                 key={n}
                 style={{
-                  padding: '28px 24px',
+                  padding: isMobile ? '20px 16px' : '28px 24px',
                   background: theme.cardBg,
                   border: `1px solid ${theme.border}`,
                   borderRadius: theme.cardRadius,
@@ -100,7 +103,7 @@ export const About: React.FC = () => {
                 <div
                   style={{
                     fontFamily: theme.heading,
-                    fontSize: 36,
+                    fontSize: isMobile ? 28 : 36,
                     fontWeight: 700,
                     color: theme.accent,
                     marginBottom: 8,

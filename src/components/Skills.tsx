@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { theme } from '../themes/themes';
 import { Reveal } from './Reveal';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 
 interface SkillGroupProps {
   label: string;
@@ -73,12 +74,14 @@ const SkillGroup: React.FC<SkillGroupProps> = ({ label, skills, delay }) => {
 };
 
 export const Skills: React.FC = () => {
+  const width = useWindowWidth();
+  const isMobile = width < 640;
 
   return (
     <section
       id="skills"
       style={{
-        padding: '120px 48px',
+        padding: isMobile ? '80px 24px' : '120px 48px',
         background: theme.altBg,
       }}
     >
@@ -98,7 +101,7 @@ export const Skills: React.FC = () => {
           <h2
             style={{
               fontFamily: theme.heading,
-              fontSize: 42,
+              fontSize: isMobile ? 32 : 42,
               fontWeight: theme.headWeight,
               color: theme.fg,
               margin: '0 0 56px',
@@ -111,8 +114,8 @@ export const Skills: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            gap: 48,
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr',
+            gap: isMobile ? 40 : 48,
           }}
         >
           <SkillGroup
