@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
             marginBottom: 24,
           }}
         >
-          SOFTWARE ENGINEER → DATA SCIENTIST · BASED IN LINZ, AUSTRIA
+          SOFTWARE ENGINEER → DATA SCIENTIST | BASED IN LINZ, AUSTRIA
         </div>
         <h1
           style={{
