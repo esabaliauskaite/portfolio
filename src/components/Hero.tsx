@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
             marginBottom: 24,
           }}
         >
-          SOFTWARE ENGINEER → DATA SCIENTIST | BASED IN LINZ, AUSTRIA
+          FRONTEND ENGINEER · ANGULAR · REACT · TYPESCRIPT | LINZ, AUSTRIA
         </div>
         <h1
           style={{
@@ -82,8 +82,8 @@ export const Hero: React.FC = () => {
             margin: '0 0 40px',
           }}
         >
-          Frontend engineer turning analytical instincts into data science. I build things that make
-          data legible and make decisions easier.
+          I build responsive, maintainable interfaces for complex products—from industrial IoT
+          dashboards to enterprise applications and interactive prototypes.
         </p>
         <div
           style={{

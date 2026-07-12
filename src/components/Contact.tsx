@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { theme } from '../themes/themes';
 import { Reveal } from './Reveal';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 
 export const Contact: React.FC = () => {
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
+  const width = useWindowWidth();
+  const isMobile = width < 640;
   return (
     <section
       id="contact"
       style={{
-        padding: '120px 48px',
+        padding: isMobile ? '80px 24px' : '120px 48px',
         background: theme.altBg,
       }}
     >
@@ -35,7 +30,7 @@ export const Contact: React.FC = () => {
           <h2
             style={{
               fontFamily: theme.heading,
-              fontSize: 42,
+              fontSize: isMobile ? 32 : 42,
               fontWeight: theme.headWeight,
               color: theme.fg,
               margin: '0 0 16px',
@@ -53,108 +48,20 @@ export const Contact: React.FC = () => {
               marginBottom: 48,
             }}
           >
-            Open to data science roles, freelance analysis projects, and interesting conversations.
+            Open to frontend and software engineering opportunities in Austria, and remote teams.
           </p>
         </Reveal>
-        {sent ? (
-          <Reveal>
-            <div
-              style={{
-                fontFamily: theme.body,
-                fontSize: 15,
-                color: theme.accent,
-                padding: '24px',
-                border: `1px solid ${theme.accent}44`,
-                borderRadius: theme.cardRadius,
-              }}
-            >
-              Message sent — I'll be in touch soon.
-            </div>
-          </Reveal>
-        ) : (
-          <Reveal delay={0.1}>
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 16,
-              }}
-            >
-              {['name', 'email'].map((field) => (
-                <input
-                  key={field}
-                  placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                  required
-                  value={form[field as keyof typeof form]}
-                  onChange={(e) =>
-                    setForm({
-                      ...form,
-                      [field]: e.target.value,
-                    })
-                  }
-                  style={{
-                    fontFamily: theme.body,
-                    fontSize: 14,
-                    color: theme.fg,
-                    padding: '14px 18px',
-                    background: theme.inputBg,
-                    border: `1px solid ${theme.border}`,
-                    borderRadius: theme.radius,
-                    outline: 'none',
-                  }}
-                />
-              ))}
-              <textarea
-                placeholder="Message"
-                required
-                rows={5}
-                value={form.message}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    message: e.target.value,
-                  })
-                }
-                style={{
-                  fontFamily: theme.body,
-                  fontSize: 14,
-                  color: theme.fg,
-                  padding: '14px 18px',
-                  background: theme.inputBg,
-                  border: `1px solid ${theme.border}`,
-                  borderRadius: theme.radius,
-                  outline: 'none',
-                  resize: 'vertical',
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  fontFamily: theme.body,
-                  fontSize: 14,
-                  padding: '14px',
-                  background: theme.accent,
-                  color: theme.accentFg,
-                  border: 'none',
-                  borderRadius: theme.radius,
-                  cursor: 'pointer',
-                  letterSpacing: '0.04em',
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.85')}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-              >
-                Send message
-              </button>
-            </form>
-          </Reveal>
-        )}
+        <Reveal delay={0.1}>
+          <a href="mailto:esabaliauskaite6@gmail.com?subject=Frontend%20engineering%20opportunity" style={{ display: 'inline-flex', fontFamily: theme.body, fontSize: 14, padding: '14px 24px', background: theme.accent, color: theme.accentFg, borderRadius: theme.radius, textDecoration: 'none', letterSpacing: '0.04em' }}>
+            Email me
+          </a>
+        </Reveal>
         <Reveal delay={0.2}>
           <div
             style={{
               marginTop: 48,
               display: 'flex',
+              flexWrap: 'wrap',
               gap: 24,
               fontFamily: theme.body,
               fontSize: 13,

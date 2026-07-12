@@ -86,7 +86,7 @@ const ProjectCard: React.FC<Project & { index: number }> = ({ title, description
               letterSpacing: '0.08em',
             }}
           >
-            [ project screenshot ]
+            professional case study
           </div>
         )}
         <h3
@@ -271,7 +271,7 @@ export const Projects: React.FC = () => {
               lineHeight: 1.1,
             }}
           >
-            Newest projects
+            Selected frontend work
           </h2>
         </Reveal>
         <div

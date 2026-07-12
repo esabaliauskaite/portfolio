@@ -120,18 +120,18 @@ export const Skills: React.FC = () => {
         >
           <SkillGroup
             delay={0}
-            label="WEB DEVELOPMENT"
-            skills={['Angular', 'React', 'JavaScript', 'TypeScript', 'HTML/CSS']}
+            label="FRONTEND ENGINEERING"
+            skills={['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Responsive UI']}
           />
           <SkillGroup
             delay={0.1}
-            label="DATA SCIENCE"
-            skills={['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'PyTorch']}
+            label="ENGINEERING PRACTICE"
+            skills={['Component Design', 'Legacy Modernisation', 'UI Performance', 'Agile Delivery', 'Git']}
           />
           <SkillGroup
             delay={0.2}
-            label="VISUALIZATION & TOOLS"
-            skills={['Plotly', 'Seaborn', 'matplotlib', 'Jupyter Notebook', 'Git', 'Figma']}
+            label="PRODUCT & PROTOTYPING"
+            skills={['IoT Dashboards', 'Data Visualisation', 'AR Prototypes', 'Proofs of Concept', 'Figma']}
           />
         </div>
       </div>

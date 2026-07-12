@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
         color: theme.fg2,
       }}
     >
-      <span>© 2026 Egle Sabaliauskaite</span>
+      <span>© {new Date().getFullYear()} Egle Sabaliauskaite</span>
     </footer>
   );
 };

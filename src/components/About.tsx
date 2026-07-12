@@ -9,7 +9,7 @@ export const About: React.FC = () => {
 
   const stats = [
     { n: '4+', label: 'Years in frontend engineering' },
-    { n: '2', label: 'DS projects shipped' },
+    { n: '3', label: 'Product domains' },
     { n: 'BSc', label: 'Multimedia Design' },
     { n: 'MSc', label: 'Interactive Media' },
   ];
@@ -54,9 +54,9 @@ export const About: React.FC = () => {
               lineHeight: 1.1,
             }}
           >
-            From pixels
+            Engineering clear,
             <br />
-            to patterns
+            usable interfaces
           </h2>
           <p
             style={{
@@ -67,8 +67,8 @@ export const About: React.FC = () => {
               marginBottom: 20,
             }}
           >
-            I spent years building interfaces that surface complex information clearly. That same
-            instinct, making the invisible visible, is what drew me toward data science.
+            I am a frontend-focused software engineer with more than four years of experience
+            improving and building web applications with Angular, React, JavaScript, and TypeScript.
           </p>
           <p
             style={{
@@ -78,8 +78,9 @@ export const About: React.FC = () => {
               lineHeight: 1.75,
             }}
           >
-            My engineering background gives me an edge: I can prototype, ship, and communicate
-            findings as polished interactive tools, not just notebooks.
+            My work spans industrial IoT, retail software, AR prototypes, and research applications.
+            I focus on responsive UI, maintainable code, and turning technically complex workflows
+            into interfaces people can use with confidence.
           </p>
         </Reveal>
         <Reveal delay={0.15}>

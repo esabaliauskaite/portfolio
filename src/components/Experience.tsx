@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { theme } from '../themes/themes';
 import { Reveal } from './Reveal';
+import { useWindowWidth } from '../hooks/useWindowWidth';
 
 const TimelineLine: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -126,11 +127,14 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
 };
 
 export const Experience: React.FC = () => {
+  const width = useWindowWidth();
+  const isMobile = width < 640;
+
   return (
     <section
       id="experience"
       style={{
-        padding: '120px 48px',
+        padding: isMobile ? '80px 24px' : '120px 48px',
         background: theme.bg,
       }}
     >
@@ -150,7 +154,7 @@ export const Experience: React.FC = () => {
           <h2
             style={{
               fontFamily: theme.heading,
-              fontSize: 42,
+              fontSize: isMobile ? 32 : 42,
               fontWeight: theme.headWeight,
               color: theme.fg,
               margin: '0 0 56px',
@@ -162,10 +166,10 @@ export const Experience: React.FC = () => {
         </Reveal>
         <TimelineItem
           delay={0}
-          year="01/2026 – present"
-          role="Career Transition → Data Science"
-          company="Self-directed learning & projects"
-          desc="Pivoting from frontend engineering into data science: building end-to-end projects in Python, sharpening skills in data analysis, machine learning, and visualisation, and translating my engineering background into data-driven products."
+          year="11/2025 – present"
+          role="Frontend Engineering Portfolio"
+          company="Independent development"
+          desc="Strengthening modern frontend skills through focused project work, with an emphasis on TypeScript, React, reusable component design, responsive interfaces, and production-quality delivery."
         />
         <TimelineItem
           delay={0.1}
@@ -191,7 +195,7 @@ export const Experience: React.FC = () => {
         <TimelineItem
           delay={0.4}
           year="07/2021 – 12/2021"
-          role="Projektmitarbeiterin"
+          role="Frontend Developer (Project role)"
           company="Johannes Kepler Universität, Linz"
           desc="Enhanced and maintained legacy applications using React, improving frontend performance and overall usability. Supported backend development within an Agile, sprint-based workflow."
           last
