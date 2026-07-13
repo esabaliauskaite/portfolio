@@ -196,7 +196,7 @@ export const Experience: React.FC = () => {
           company="MAIT Austria GmbH, Linz"
           desc={[
             'Designed and implemented user interfaces and operational dashboards for an industrial IoT platform, making shopfloor and workflow data easier to understand and use.',
-            'Evaluated IoT, AR, and automation technologies to support client digitalization initiatives and guide proof-of-concept development.',
+            'Evaluated IoT and AR technologies for client digitalisation initiatives and proof-of-concept development.',
           ]}
         />
         <TimelineItem
@@ -205,8 +205,8 @@ export const Experience: React.FC = () => {
           role="Software Engineer"
           company="NTS Retail KG, Linz"
           desc={[
-            'Modernized existing Angular applications by upgrading the framework version and improving responsive behaviour across devices.',
-            'Contributed primarily to frontend delivery while supporting selected backend tasks.',
+            'Modernized existing Angular applications by upgrading the framework version and improving responsive behaviour across various platforms.',
+            'Contributed primarily to frontend development while supporting selected backend tasks.',
           ]}
         />
         <TimelineItem

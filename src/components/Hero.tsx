@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
             margin: '0 0 40px',
           }}
         >
-          I build responsive, maintainable interfaces for complex products—from industrial IoT
+          I build responsive, maintainable interfaces for complex products from industrial IoT
           dashboards to enterprise applications and interactive prototypes.
         </p>
         <div
