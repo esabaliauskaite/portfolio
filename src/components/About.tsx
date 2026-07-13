@@ -78,9 +78,8 @@ export const About: React.FC = () => {
               lineHeight: 1.75,
             }}
           >
-            My work spans industrial IoT, retail software, AR prototypes, and research applications.
-            I focus on responsive UI, maintainable code, and turning technically complex workflows
-            into interfaces people can use with confidence.
+            My work spans across industrial IoT, retail software, AR prototypes, and interactive prototypes.
+            I focus on responsive UI, maintainable code, and turning technically complex workflows into interfaces people can use with confidence.
           </p>
         </Reveal>
         <Reveal delay={0.15}>

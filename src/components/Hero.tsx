@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
             marginBottom: 24,
           }}
         >
-          FRONTEND ENGINEER · ANGULAR · REACT · TYPESCRIPT | LINZ, AUSTRIA
+          FRONTEND ENGINEER | REACT, ANGULAR, TYPESCRIPT | LINZ, AUSTRIA
         </div>
         <h1
           style={{
@@ -212,31 +212,6 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {!isMobile && (
-        <div
-          style={{
-            position: 'absolute',
-            right: 48,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            opacity: 0.06,
-          }}
-        >
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              style={{
-                width: 1,
-                height: 120,
-                background: theme.fg,
-                display: 'inline-block',
-                margin: '0 12px',
-              }}
-            />
-          ))}
-        </div>
-      )}
     </section>
   );
 };

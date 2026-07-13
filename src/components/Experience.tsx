@@ -47,7 +47,7 @@ interface TimelineItemProps {
   year: string;
   role: string;
   company: string;
-  desc: string;
+  desc: string[];
   last?: boolean;
   delay: number;
 }
@@ -109,17 +109,22 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
           >
             {company}
           </div>
-          <p
+          <ul
             style={{
               fontFamily: theme.body,
               fontSize: 14,
               color: theme.fg2,
               lineHeight: 1.65,
               margin: 0,
+              paddingLeft: 18,
             }}
           >
-            {desc}
-          </p>
+            {desc.map((d, i) => (
+              <li key={i} style={{ marginBottom: 8 }}>
+                {d}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Reveal>
@@ -169,36 +174,61 @@ export const Experience: React.FC = () => {
           year="11/2025 – present"
           role="Frontend Engineering Portfolio"
           company="Independent development"
-          desc="Strengthening modern frontend skills through focused project work, with an emphasis on TypeScript, React, reusable component design, responsive interfaces, and production-quality delivery."
+          desc={[
+            // `Strengthening modern frontend skills through focused project work`,
+            'Emphasis on TypeScript, React, reusable component design, responsive interfaces, and production-quality delivery',
+          ]}
         />
         <TimelineItem
           delay={0.1}
           year="11/2024 – 10/2025"
           role="Senior Software Engineer"
           company="MAIT Austria GmbH, Linz"
-          desc="Led technical workshops to demonstrate AR and IoT products, guiding clients on usage and potential applications. Collaborated with clients on proof-of-concept projects, shaping solutions through hands-on experimentation and feedback."
+          desc={[
+            'Led technical workshops and product demonstrations for AR and IoT solutions, translating client needs into practical use cases.',
+            'Collaborated with clients and various teams on proof-of-concept projects, refining solution ideas through hands-on testing and feedback.',
+          ]}
         />
         <TimelineItem
           delay={0.2}
           year="07/2023 – 11/2024"
           role="Software Developer IoT + AR"
           company="MAIT Austria GmbH, Linz"
-          desc="Designed and implemented UI and dashboards to visualize shopfloor and workflow data within an industrial IoT platform. Researched emerging IoT, AR, and automation technologies to support client digitalization initiatives."
+          desc={[
+            'Designed and implemented user interfaces and operational dashboards for an industrial IoT platform, making shopfloor and workflow data easier to understand and use.',
+            'Evaluated IoT, AR, and automation technologies to support client digitalization initiatives and guide proof-of-concept development.',
+          ]}
         />
         <TimelineItem
           delay={0.3}
           year="01/2022 – 02/2023"
           role="Software Engineer"
           company="NTS Retail KG, Linz"
-          desc="Upgraded and optimized existing Angular applications to a newer version, ensuring responsiveness across multiple devices. Supported backend tasks and contributed to internal demos and proof-of-concept projects."
+          desc={[
+            'Modernized existing Angular applications by upgrading the framework version and improving responsive behaviour across devices.',
+            'Contributed primarily to frontend delivery while supporting selected backend tasks.',
+          ]}
         />
         <TimelineItem
           delay={0.4}
           year="07/2021 – 12/2021"
           role="Frontend Developer (Project role)"
           company="Johannes Kepler Universität, Linz"
-          desc="Enhanced and maintained legacy applications using React, improving frontend performance and overall usability. Supported backend development within an Agile, sprint-based workflow."
-          last
+          desc={[
+            'Maintained and enhanced legacy React applications, with a focus on frontend performance and usability.',
+            'Delivered frontend work within an Agile, sprint-based team and supported backend development where required.',
+          ]}
+        />
+        <TimelineItem
+          delay={0.4}
+          year="06/2020 – 09/2020"
+          role="Junior Frontend Developer"
+          company="Softrobotics UAB, Vilnius, Lithuania"
+          desc={[
+            'Designed and developed custom WordPress websites, delivering user-friendly frontend solutions based on client requirements.',
+            'Migrated existing websites to WordPress, ensuring smooth transitions while improving usability and functionality.'
+          ]}
+            last
         />
       </div>
     </section>
