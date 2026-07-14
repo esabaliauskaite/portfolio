@@ -29,18 +29,6 @@ export const Hero: React.FC = () => {
       }}
     >
       <div style={{ maxWidth: 900 }}>
-        <div
-          style={{
-            ...anim(0.1),
-            fontFamily: theme.mono,
-            fontSize: 12,
-            color: theme.accent,
-            letterSpacing: '0.16em',
-            marginBottom: 24,
-          }}
-        >
-          FRONTEND ENGINEER | REACT, ANGULAR, TYPESCRIPT | LINZ, AUSTRIA
-        </div>
         <h1
           style={{
             fontFamily: theme.heading,
@@ -71,6 +59,19 @@ export const Hero: React.FC = () => {
             </div>
           ))}
         </h1>
+        
+        <div
+          style={{
+            ...anim(0.1),
+            fontFamily: theme.mono,
+            fontSize: isMobile ? 12 : 14,
+            color: theme.accent,
+            letterSpacing: '0.16em',
+            marginBottom: 24,
+          }}
+        >
+          FRONTEND ENGINEER | REACT, TYPESCRIPT | LINZ, AUSTRIA
+        </div>
         <p
           style={{
             ...anim(0.4),

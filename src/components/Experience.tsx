@@ -80,7 +80,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
           <div
             style={{
               fontFamily: theme.mono,
-              fontSize: 11,
+              fontSize: 12,
               color: theme.accent,
               letterSpacing: '0.12em',
               marginBottom: 8,
@@ -91,7 +91,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
           <div
             style={{
               fontFamily: theme.heading,
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: theme.headWeight,
               color: theme.fg,
               marginBottom: 4,
@@ -102,7 +102,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
           <div
             style={{
               fontFamily: theme.body,
-              fontSize: 13,
+              fontSize: 14,
               color: theme.accent,
               marginBottom: 12,
             }}
@@ -112,7 +112,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ year, role, company, desc, 
           <ul
             style={{
               fontFamily: theme.body,
-              fontSize: 14,
+              fontSize: 16,
               color: theme.fg2,
               lineHeight: 1.65,
               margin: 0,
@@ -148,7 +148,7 @@ export const Experience: React.FC = () => {
           <div
             style={{
               fontFamily: theme.mono,
-              fontSize: 11,
+              fontSize: 12,
               color: theme.accent,
               letterSpacing: '0.16em',
               marginBottom: 16,

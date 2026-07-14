@@ -9,7 +9,7 @@ export const About: React.FC = () => {
 
   const stats = [
     { n: '4+', label: 'Years in frontend engineering' },
-    { n: '3', label: 'Product domains' },
+    { n: 'React', label: 'Primary frontend framework' },
     { n: 'BSc', label: 'Multimedia Design' },
     { n: 'MSc', label: 'Interactive Media' },
   ];
@@ -61,7 +61,7 @@ export const About: React.FC = () => {
           <p
             style={{
               fontFamily: theme.body,
-              fontSize: 15,
+              fontSize: isMobile ? 16 : 18,
               color: theme.fg2,
               lineHeight: 1.75,
               marginBottom: 20,
@@ -73,7 +73,7 @@ export const About: React.FC = () => {
           <p
             style={{
               fontFamily: theme.body,
-              fontSize: 15,
+              fontSize: isMobile ? 16 : 18,
               color: theme.fg2,
               lineHeight: 1.75,
             }}
@@ -114,7 +114,7 @@ export const About: React.FC = () => {
                 <div
                   style={{
                     fontFamily: theme.body,
-                    fontSize: 13,
+                    fontSize: isMobile ? 12 : 14,
                     color: theme.fg2,
                     lineHeight: 1.5,
                   }}

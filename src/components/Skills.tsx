@@ -37,7 +37,7 @@ const SkillGroup: React.FC<SkillGroupProps> = ({ label, skills, delay }) => {
       <div
         style={{
           fontFamily: theme.mono,
-          fontSize: 11,
+          fontSize: 12,
           color: theme.accent,
           letterSpacing: '0.14em',
           marginBottom: 20,
@@ -54,7 +54,7 @@ const SkillGroup: React.FC<SkillGroupProps> = ({ label, skills, delay }) => {
             key={skill}
             style={{
               fontFamily: theme.body,
-              fontSize: 13,
+              fontSize: 14,
               color: theme.fg,
               background: theme.tagBg,
               border: `1px solid ${theme.border}`,
