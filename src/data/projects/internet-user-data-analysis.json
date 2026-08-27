@@ -1,0 +1,8 @@
+{
+  "title": "Share of the population using the Internet",
+  "description": "Exploratory analysis of global internet adoption (2000–2025) using Python, examining how the digital divide between income groups and regions has evolved over time.",
+  "primaryTags": ["Python", "Pandas", "Jupyter Notebook"],
+  "tags": ["Data Visualization", "EDA"],
+  "github": "https://github.com/esabaliauskaite/internet-user-data-analysis",
+  "image": "../projects/internet-adoption-by-socioeconomic-group.png"
+}

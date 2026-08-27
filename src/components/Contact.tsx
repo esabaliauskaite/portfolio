@@ -21,17 +21,6 @@ export const Contact: React.FC = () => {
     >
       <div style={{ maxWidth: 600, margin: '0 auto' }}>
         <Reveal>
-          <div
-            style={{
-              fontFamily: theme.mono,
-              fontSize: 11,
-              color: theme.accent,
-              letterSpacing: '0.16em',
-              marginBottom: 16,
-            }}
-          >
-            CONTACT
-          </div>
           <h2
             style={{
               fontFamily: theme.heading,
@@ -42,7 +31,7 @@ export const Contact: React.FC = () => {
               lineHeight: 1.1,
             }}
           >
-            Let's talk
+            Contact
           </h2>
           <p
             style={{

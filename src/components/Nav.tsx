@@ -23,7 +23,7 @@ export const Nav: React.FC = () => {
     setMenuOpen(false);
   };
 
-  const links = ['About', 'Skills', 'Experience', 'Contact'];
+  const links = ['About', 'Projects', 'Skills', 'Experience', 'Contact'];
 
   return (
     <>

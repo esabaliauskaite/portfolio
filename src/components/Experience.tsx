@@ -145,17 +145,6 @@ export const Experience: React.FC = () => {
     >
       <div style={{ maxWidth: 700, margin: '0 auto' }}>
         <Reveal>
-          <div
-            style={{
-              fontFamily: theme.mono,
-              fontSize: 12,
-              color: theme.accent,
-              letterSpacing: '0.16em',
-              marginBottom: 16,
-            }}
-          >
-            EXPERIENCE
-          </div>
           <h2
             style={{
               fontFamily: theme.heading,
@@ -166,7 +155,7 @@ export const Experience: React.FC = () => {
               lineHeight: 1.1,
             }}
           >
-            Timeline
+            Experience
           </h2>
         </Reveal>
         <TimelineItem

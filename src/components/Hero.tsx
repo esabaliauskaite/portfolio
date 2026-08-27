@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
         >
           <button
             onClick={() =>
-              document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
             }
             style={{
               fontFamily: theme.body,
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
             onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.85')}
             onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
           >
-            View Skills
+            View Projects
           </button>
           <a
             href="/portfolio/CV_Egle_Sabaliauskaite.pdf"

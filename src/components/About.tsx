@@ -33,17 +33,6 @@ export const About: React.FC = () => {
         }}
       >
         <Reveal>
-          <div
-            style={{
-              fontFamily: theme.mono,
-              fontSize: 11,
-              color: theme.accent,
-              letterSpacing: '0.16em',
-              marginBottom: 16,
-            }}
-          >
-            ABOUT
-          </div>
           <h2
             style={{
               fontFamily: theme.heading,

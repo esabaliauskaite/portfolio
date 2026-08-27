@@ -250,17 +250,6 @@ export const Projects: React.FC = () => {
     >
       <div style={{ maxWidth: 1000, margin: '0 auto' }}>
         <Reveal>
-          <div
-            style={{
-              fontFamily: theme.mono,
-              fontSize: 11,
-              color: theme.accent,
-              letterSpacing: '0.16em',
-              marginBottom: 16,
-            }}
-          >
-            PROJECTS
-          </div>
           <h2
             style={{
               fontFamily: theme.heading,
@@ -271,7 +260,7 @@ export const Projects: React.FC = () => {
               lineHeight: 1.1,
             }}
           >
-            Selected frontend work
+            Projects
           </h2>
         </Reveal>
         <div
