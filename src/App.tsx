@@ -1,31 +1,19 @@
-import React, { useEffect } from 'react';
-import { theme } from './themes/themes';
-import { Nav } from './components/Nav';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Projects } from './components/Projects';
-import { Skills } from './components/Skills';
-import { Experience } from './components/Experience';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+import { Nav, Hero, About, Projects, Skills, Experience, Contact, Footer } from './components';
 
-const App: React.FC = () => {
-  useEffect(() => {
-    document.body.style.background = theme.bg;
-  }, []);
-
-  return (
-    <div style={{ background: theme.bg, color: theme.fg }}>
-      <Nav />
+const App = () => (
+  <div id="top" className="site">
+    <a className="skip-link" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main" tabIndex={-1}>
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Experience />
       <Contact />
-      <Footer />
-    </div>
-  );
-};
+    </main>
+    <Footer />
+  </div>
+);
 
 export default App;

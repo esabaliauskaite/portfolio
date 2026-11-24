@@ -1,129 +1,28 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { theme } from '../themes/themes';
+import { skillGroups } from '../data/profile';
 import { Reveal } from './Reveal';
-import { useWindowWidth } from '../hooks/useWindowWidth';
 
-interface SkillGroupProps {
-  label: string;
-  skills: string[];
-  delay: number;
-}
-
-const SkillGroup: React.FC<SkillGroupProps> = ({ label, skills, delay }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  return (
-    <div ref={ref}>
-      <div
-        style={{
-          fontFamily: theme.mono,
-          fontSize: 12,
-          color: theme.accent,
-          letterSpacing: '0.14em',
-          marginBottom: 20,
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'none' : 'translateY(12px)',
-          transition: `opacity 0.5s ease ${delay}s, transform 0.5s ease ${delay}s`,
-        }}
-      >
-        {label}
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-        {skills.map((skill, i) => (
-          <span
-            key={skill}
-            style={{
-              fontFamily: theme.body,
-              fontSize: 14,
-              color: theme.fg,
-              background: theme.tagBg,
-              border: `1px solid ${theme.border}`,
-              padding: '7px 16px',
-              borderRadius: theme.radius,
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(10px) scale(0.94)',
-              transition: `opacity 0.4s ease ${delay + 0.08 + i * 0.055}s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1) ${delay + 0.08 + i * 0.055}s`,
-            }}
-          >
-            {skill}
-          </span>
+export const Skills = () => (
+  <section id="skills" className="section section-tinted" aria-labelledby="skills-heading">
+    <div className="section-shell">
+      <Reveal>
+        <div className="section-heading">
+          <div><p className="eyebrow">Skills & tools</p><h2 id="skills-heading">What I work with.</h2></div>
+          <p>A growing AI toolkit alongside an established software engineering foundation.</p>
+        </div>
+      </Reveal>
+      <div className="skills-grid">
+        {skillGroups.map((group, index) => (
+          <Reveal key={group.title} delay={index * 0.04}>
+            <div className="skill-group">
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <ul className="tag-list" aria-label={group.title}>
+                {group.skills.map(skill => <li className="tag" key={skill}>{skill}</li>)}
+              </ul>
+            </div>
+          </Reveal>
         ))}
       </div>
     </div>
-  );
-};
-
-export const Skills: React.FC = () => {
-  const width = useWindowWidth();
-  const isMobile = width < 640;
-
-  return (
-    <section
-      id="skills"
-      style={{
-        padding: isMobile ? '80px 24px' : '120px 48px',
-        background: theme.altBg,
-      }}
-    >
-      <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-        <Reveal>
-          <h2
-            style={{
-              fontFamily: theme.heading,
-              fontSize: isMobile ? 32 : 42,
-              fontWeight: theme.headWeight,
-              color: theme.fg,
-              margin: '0 0 56px',
-              lineHeight: 1.1,
-            }}
-          >
-            Skills & Tools
-          </h2>
-        </Reveal>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr',
-            gap: isMobile ? 40 : 48,
-          }}
-        >
-          <SkillGroup
-            delay={0}
-            label="FRONTEND ENGINEERING"
-            skills={[ 'React', 'Angular', 'TypeScript', 'JavaScript', 'Tailwind']}
-          />
-          <SkillGroup
-            delay={0.1}
-            label="ENGINEERING PRACTICE"
-            skills={['Component Design', 'UI Performance', 'Responsive UI', 'Agile Delivery', 'Git']}
-          />
-          <SkillGroup
-            delay={0.2}
-            label="PRODUCT & PROTOTYPING"
-            skills={['IoT Dashboards', 'Data Visualisation', 'AR Prototypes', 'Proofs of Concept', 'Figma']}
-          />
-        </div>
-      </div>
-    </section>
-  );
-};
+  </section>
+);

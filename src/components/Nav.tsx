@@ -1,222 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { theme } from '../themes/themes';
-import { useWindowWidth } from '../hooks/useWindowWidth';
+import { useEffect, useRef, useState } from 'react';
+import { assetPath, profile } from '../data/profile';
 
-export const Nav: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
+const links = ['About', 'Projects', 'Skills', 'Experience', 'Contact'];
+
+export const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const width = useWindowWidth();
-  const isMobile = width < 640;
+  const toggle = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile) setMenuOpen(false);
-  }, [isMobile]);
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-  };
-
-  const links = ['About', 'Projects', 'Skills', 'Experience', 'Contact'];
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    document.addEventListener('keydown', closeOnEscape);
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape);
+      desktop.removeEventListener('change', closeOnDesktop);
+    };
+  }, [menuOpen]);
 
   return (
-    <>
-      <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          padding: isMobile ? '0 24px' : '0 48px',
-          background: scrolled || menuOpen ? theme.navBg : 'transparent',
-          backdropFilter: scrolled || menuOpen ? 'blur(12px)' : 'none',
-          borderBottom: (scrolled && !menuOpen) ? `1px solid ${theme.border}` : 'none',
-          transition: 'all 0.3s ease',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          height: 64,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: theme.mono,
-            fontSize: 13,
-            color: theme.accent,
-            letterSpacing: '0.12em',
-          }}
-        >
-          ES
-        </span>
-
-        {isMobile ? (
-          <button
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 8,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 5,
-              justifyContent: 'center',
-            }}
-          >
-            <span
-              style={{
-                display: 'block',
-                width: 22,
-                height: 1.5,
-                background: menuOpen ? theme.accent : theme.fg,
-                transition: 'transform 0.25s',
-                transform: menuOpen ? 'translateY(6.5px) rotate(45deg)' : 'none',
-              }}
-            />
-            <span
-              style={{
-                display: 'block',
-                width: 22,
-                height: 1.5,
-                background: theme.fg,
-                transition: 'opacity 0.25s',
-                opacity: menuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              style={{
-                display: 'block',
-                width: 22,
-                height: 1.5,
-                background: menuOpen ? theme.accent : theme.fg,
-                transition: 'transform 0.25s',
-                transform: menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
-              }}
-            />
-          </button>
-        ) : (
-          <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
-            {links.map((link) => (
-              <button
-                key={link}
-                onClick={() => scrollToSection(link.toLowerCase())}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontFamily: theme.body,
-                  fontSize: 13,
-                  color: theme.fg2,
-                  letterSpacing: '0.04em',
-                  padding: 0,
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = theme.accent)}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = theme.fg2)}
-              >
-                {link}
-              </button>
-            ))}
-            <a
-              href="/portfolio/CV_Egle_Sabaliauskaite.pdf"
-              download="CV_Egle_Sabaliauskaite.pdf"
-              style={{
-                background: 'none',
-                border: `1px solid ${theme.accent}`,
-                borderRadius: theme.radius,
-                cursor: 'pointer',
-                fontFamily: theme.body,
-                fontSize: 12,
-                color: theme.accent,
-                padding: '5px 14px',
-                letterSpacing: '0.06em',
-                transition: 'all 0.2s',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = theme.accent;
-                e.currentTarget.style.color = theme.bg;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'none';
-                e.currentTarget.style.color = theme.accent;
-              }}
-            >
-              Resume ↓
-            </a>
-          </div>
-        )}
-      </nav>
-
-      {isMobile && menuOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 64,
-            left: 0,
-            right: 0,
-            zIndex: 99,
-            background: theme.navBg,
-            backdropFilter: 'blur(12px)',
-            borderBottom: `1px solid ${theme.border}`,
-            padding: '16px 24px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 0,
-          }}
-        >
-          {links.map((link) => (
-            <button
-              key={link}
-              onClick={() => scrollToSection(link.toLowerCase())}
-              style={{
-                background: 'none',
-                border: 'none',
-                borderBottom: `1px solid ${theme.border}`,
-                cursor: 'pointer',
-                fontFamily: theme.body,
-                fontSize: 15,
-                color: theme.fg2,
-                letterSpacing: '0.04em',
-                padding: '14px 0',
-                textAlign: 'left',
-              }}
-            >
-              {link}
-            </button>
+    <header className="site-header">
+      <nav className="nav-inner section-shell" aria-label="Main navigation">
+        <a className="brand" href="#top" aria-label={`${profile.name}, home`} onClick={() => setMenuOpen(false)}>
+          <span className="brand-mark" aria-hidden="true">es.</span>
+          <span className="brand-name">{profile.name}</span>
+        </a>
+        <button ref={toggle} className="menu-toggle" type="button" aria-expanded={menuOpen}
+          aria-controls="main-menu" onClick={() => setMenuOpen(open => !open)}>
+          {menuOpen ? 'Close' : 'Menu'}
+          <span className={`menu-symbol${menuOpen ? ' is-open' : ''}`} aria-hidden="true"><span /><span /></span>
+        </button>
+        <div id="main-menu" className={`nav-links${menuOpen ? ' is-open' : ''}`}>
+          {links.map(link => (
+            <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{link}</a>
           ))}
-          <a
-            href="/portfolio/CV_Egle_Sabaliauskaite.pdf"
-            download="CV_Egle_Sabaliauskaite.pdf"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 16,
-              border: `1px solid ${theme.accent}`,
-              borderRadius: theme.radius,
-              fontFamily: theme.body,
-              fontSize: 13,
-              color: theme.accent,
-              padding: '10px 14px',
-              letterSpacing: '0.06em',
-              textDecoration: 'none',
-            }}
-          >
-            Resume ↓
+          <a className="nav-cv" href={assetPath(profile.cv)} download={profile.cv} onClick={() => setMenuOpen(false)}>
+            CV <span className="file-format">PDF</span>
           </a>
         </div>
-      )}
-    </>
+      </nav>
+    </header>
   );
 };

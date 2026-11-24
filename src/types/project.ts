@@ -1,4 +1,6 @@
 export interface Project {
+  order?: number;
+  category?: string;
   title: string;
   description: string;
   primaryTags?: string[];
@@ -6,4 +8,5 @@ export interface Project {
   github?: string;
   link?: string;
   image?: string;
+  imageAlt?: string;
 }

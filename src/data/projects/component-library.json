@@ -1,8 +1,19 @@
 {
   "title": "Component Library",
   "description": "A reusable React component library with typed APIs, accessible interaction states, semantic design tokens, and light and dark themes.",
-  "primaryTags": ["React", "TypeScript", "Tailwind CSS"],
-  "tags": ["Component Library", "Design System", "Accessibility"],
+  "primaryTags": [
+    "React",
+    "TypeScript",
+    "Tailwind CSS"
+  ],
+  "tags": [
+    "Component Library",
+    "Design System",
+    "Accessibility"
+  ],
   "github": "https://github.com/esabaliauskaite/ComponentLibrary",
-  "image": "../projects/component-library.png"
+  "image": "../projects/component-library.png",
+  "order": 2,
+  "category": "Frontend engineering",
+  "imageAlt": "React component library showing reusable interface components"
 }
