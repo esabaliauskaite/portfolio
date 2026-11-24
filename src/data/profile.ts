@@ -2,7 +2,6 @@ export const profile = {
   name: 'Eglė Sabaliauskaitė',
   role: 'AI Engineer',
   location: 'Linz, Austria',
-  email: 'esabaliauskaite6@gmail.com',
   github: 'https://github.com/esabaliauskaite',
   linkedin: 'https://www.linkedin.com/in/eglesabaliauskaite/',
   cv: 'CV_Egle_Sabaliauskaite.pdf',
@@ -76,22 +75,22 @@ export const experience = [
 
 export const skillGroups = [
   {
-    title: 'AI & automation',
+    title: 'AI & Automation',
     description: 'Tools and techniques used in my current AI work.',
     skills: ['Python', 'Langdock', 'Docker'],
   },
   {
-    title: 'Software development',
+    title: 'Software Development',
     description: 'The foundation behind my applications and interfaces.',
     skills: ['TypeScript', 'JavaScript', 'React', 'Angular', 'Tailwind CSS', 'SQL'],
   },
   {
-    title: 'Engineering practice',
+    title: 'Engineering Practice',
     description: 'Implementation, verification and ongoing maintenance.',
     skills: ['Git', 'Testing', 'Quality assurance', 'Technical documentation'],
   },
   {
-    title: 'Product & collaboration',
+    title: 'Product & Collaboration',
     description: 'From understanding requirements to testing an idea.',
     skills: ['Technical workshops', 'Proofs of concept', 'Agile delivery', 'Figma', 'Data visualisation'],
   },
@@ -117,5 +116,5 @@ export const education = [
 export const languages = [
   { language: 'Lithuanian', level: 'Native' },
   { language: 'English', level: 'C1' },
-  { language: 'German', level: 'A2 certified · B1.1 course completed' },
+  { language: 'German', level: 'A2 Certified · B1.1 Course Completed' },
 ];
